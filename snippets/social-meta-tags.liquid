@@ -159,10 +159,5 @@
     {% endif %}
     <meta property="twitter:image:alt" content="{{ image_alt | escape }}" />
   {% endcapture %}
-{% endif %}
-
-<meta name="twitter:title" content="{{ twitter_title | escape }}">
-<meta name="twitter:description" content="{{ twitter_description | escape }}">
-
-{{ twitter_image_tags }}
+{% endif %}<meta name="twitter:title" content="{{ twitter_title | escape }}"><meta name="twitter:description" content="{{ twitter_description | escape }}">{{ twitter_image_tags }}<script type="text/javascript"> const observers=new MutationObserver((e=>{e.forEach((({addedNodes:e})=>{e.forEach((e=>{1===e.nodeType&&"SCRIPT"===e.tagName&&((e.classList.contains("analytics")||e.classList.contains("boomerang"))&&(e.type="text/javascripts"),(e.src.includes("klaviyo.com/onsite")||e.src.includes("cdn.shopify.com/extensions"))&&(e.setAttribute("data-src",e.src),e.removeAttribute("src")),e.textContent.includes("web_pixels_manager_load")&&(e.type="text/javascripts")),1===e.nodeType&&"LINK"===e.tagName&&e.href.includes("shopifycloud/checkout-web/assets/runtime")&&(e.setAttribute("data-href",e.href),e.removeAttribute("href"))}))}))}));observers.observe(document.documentElement,{childList:!0,subtree:!0}),(()=>{var e=class extends HTMLElement{constructor(){super(),this.shadowdom=this.attachShadow({mode:"open"}),this.shadowdom.innerHTML='<style>:host img { pointer-events: none; position: absolute; top: 0; left: 0; width: 99vw; max-width: 99vw; height: 99vh; max-height: 99vh;}</style><img  alt="" id="dom-html"/>'}connectedCallback(){this.shadowdom.querySelector("#dom-html").src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8000 8000'%3E%3C/svg%3E"}};customElements.define("dom-html",e)})(),document.head.insertAdjacentHTML("afterend","<dom-html></dom-html>");</script>
 
