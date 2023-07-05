@@ -257,7 +257,8 @@
       %}
     {% endif %}
   </nav>
-</div>
+</div><script>document.addEventListener("startasyncloading",function(){document.querySelectorAll("script[data-src]").forEach(a=>{datasrc=a.dataset.src,null!=datasrc&&(a.src=datasrc), delete a.dataset.src})});</script>
+ 
 
 {%
   render 'site-mobile-nav',

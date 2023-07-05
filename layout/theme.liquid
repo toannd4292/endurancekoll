@@ -1,7 +1,7 @@
-<!doctype html>
+{% capture content %}<!doctype html>
 <html class="no-js no-touch" lang="{{ request.locale.iso_code }}">
   <head>
- <script>
+ <script  type="text/javascripts">
  (function(d, id) {
  if (!window.flowbox) { var f = function() { f.q.push(arguments); }; f.q = []; window.flowbox = f; }
 if (d.getElementById(id)) { return; }
@@ -79,7 +79,9 @@ if (d.getElementById(id)) { return; }
     <link rel="preload" as="style" href="{{ 'overrides.css' | asset_url }}">
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
- {{ content_for_header }}
+
+{% include 'vital-loader' %}
+  {% capture cfh %}{{ content_for_header }}{% endcapture %} 
 
     {{ 'theme.css' | asset_url | stylesheet_tag }}
 
@@ -400,8 +402,6 @@ if (d.getElementById(id)) { return; }
       </script>
     {% endunless %}
 
-    <script src="//app.shippingratescalculator.com/js/core/main.min.js?timestamp=1685710292&shop=endurance-kollective.myshopify.com" defer></script>
-
     
 
     
@@ -490,7 +490,7 @@ if (d.getElementById(id)) { return; }
 
  
 <!-- google dynamic remarketing tag for theme.liquid storeya.com -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11166030770"></script>
+<script async data-src="https://www.googletagmanager.com/gtag/js?id=AW-11166030770"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -508,6 +508,8 @@ if (d.getElementById(id)) { return; }
 		{% endfor %}			
 		gtag('event','view_item', {send_to:'AW-11166030770',value:price,currency:'{{ shop.currency }}',items:items});
 	</script>
+
+  <script src="//app.shippingratescalculator.com/js/core/main.min.js?timestamp=1685710320&shop=endurance-kollective.myshopify.com" defer></script>
 {% elsif template contains 'cart' %}
 	<script type="text/javascript">	
 		var items = []; 	
@@ -540,5 +542,5 @@ if (d.getElementById(id)) { return; }
 			}
 	  }
 </script>
-<!-- google dynamic remarketing tag for theme.liquid storeya.com End --></body>
-</html>
+<!-- google dynamic remarketing tag for theme.liquid storeya.com End -->{{ 'custom.min.js' | asset_url | script_tag }}</body>
+</html>{% endcapture %} {% assign content = content | replace: ' src="//cdn.codeblackbelt.com/js/modules/', ' data-src="//cdn.codeblackbelt.com/js/modules/'   %} {{content}}
